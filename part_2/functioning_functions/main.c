@@ -6,7 +6,7 @@
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/15 14:32:01 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/17 15:54:03 by suvan-de      ########   odam.nl         */
+/*   Updated: 2019/01/17 16:37:36 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int     main()
 {
 	char    *str;
 	char	*str1;
+	char *str2 = "hello";
 	char	*dst;
+	char 	*dst2;
 	void	*arr;
 	int 	i;
 
@@ -30,7 +32,7 @@ int     main()
 //putendl
     ft_putendl("putendl");
 //strtrim
-	printf("%s\n", ft_strtrim("  	 \nstrtrim\n	   "));
+	printf("trimmed string: %s\n", ft_strtrim("  	 \nstrtrim\n	   "));
 //memalloc
 	str = ft_memalloc(4);
 	printf("address of allocated memory: %p\n", &str);
@@ -69,21 +71,29 @@ int     main()
 	ft_strclr(str1);
 	printf("string after strclr: %s\n", str1);
 //strcmp
-	printf("comparing hello and hello: %d\n", ft_strcmp("hello", "hello"));
+	printf("comparing -hello- and -hello-: %d\n", ft_strcmp("hello", "hello"));
 //strdel
 	ft_strdel(&str1);
 	printf("pointer to str1 after string delete: %p\n", str1);
 //strequ
-	printf("check if hello and hellp are equal: %d\n", ft_strequ("hello", "hellp"));
+	printf("check if -hello- and -hellp- are equal: %d\n", ft_strequ("hello", "hellp"));
 //striter
 	ft_striter("123", &ft_putstr);
 	ft_putchar('\n');
 //striteri
 //strjoin
-	printf("joined string of seperate hello and world: %s\n", ft_strjoin("hello", "world"));
+	printf("joined string of seperate -hello- and -world-: %s\n", ft_strjoin("hello", "world"));
 //strnequ
-	printf("check if the first two char of hello and heppo are equal: %d\n", ft_strnequ("hello", "heppo", 2));
-//strnew
+	printf("check if the first two char of -hello- and -heppo- are equal: %d\n", ft_strnequ("hello", "heppo", 2));
+ //strnew
 	printf("show pointer to new and empty string: %p\n", ft_strnew(5));
+//strsub
+//strsplit
+//strdup
+	printf("duplicate of the string -hello-: %s\n", ft_strdup(str2));
+//strcpy
+	printf("copy of string -hello- at dst: %s\n", ft_strcpy(dst, str2));
+//strncpy
+	printf("copy of the first 2 chars of string -hello- at dst: %s\n", ft_strncpy(dst2, str2, 2));
 	return (0);
 }

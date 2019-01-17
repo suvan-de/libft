@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strmap.c                                        :+:    :+:            */
+/*   ft_strncpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 10:39:36 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/10 10:45:01 by suvan-de      ########   odam.nl         */
+/*   Created: 2019/01/17 16:33:58 by suvan-de      #+#    #+#                 */
+/*   Updated: 2019/01/17 16:37:46 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
 	int i;
-	char *str;
 
+	dst = (char *)malloc(len + 1);
 	i = 0;
-	while (s[i] != '\0')
+	while (i < len)
 	{
-		str[i] = (char *)malloc(1);
-		str[i] = f(s[i]);
+		dst[i] = src[i];
 		i++;
 	}
-	str[i] = (char *)malloc(1);
-	str[i] = '\0';
-	return (str);
+	dst[i] = '\0';
+	return (dst);
 }

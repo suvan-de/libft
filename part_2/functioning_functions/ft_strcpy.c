@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strsub.c                                        :+:    :+:            */
+/*   ft_strcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/10 11:04:17 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/10 11:20:02 by suvan-de      ########   odam.nl         */
+/*   Created: 2019/01/17 16:29:17 by suvan-de      #+#    #+#                 */
+/*   Updated: 2019/01/17 16:31:22 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	char	*sub;
-	int 	i;
+	int len;
+	int i;
 
 	i = 0;
-	if (!(s[start] = (char *)malloc(len + 1)))
-		return (NULL);
-	while (i < len)
+	len = ft_strlen(src);
+	dst = (char *)malloc(len + 1);
+	while (src[i] != '\0')
 	{
-		sub[i] = s[i + start];
+		dst[i] = src[i];
 		i++;
 	}
-	sub[i] = '\0';
-	return (sub);
+	dst[i] = '\0';
+	return (dst);
 }
