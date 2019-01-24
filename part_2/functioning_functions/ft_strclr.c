@@ -6,7 +6,7 @@
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/10 10:28:11 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/17 12:53:43 by suvan-de      ########   odam.nl         */
+/*   Updated: 2019/01/18 15:08:45 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void ft_strclr(char *s)
 	int i;
 	int length;
 
+	i = 0;
+	length = ft_strlen(s);
 	while (i < length)
 	{
 		s[i] = 0;

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putnbr.c                                        :+:    :+:            */
+/*   ft_strcat.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/09 17:38:03 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/09 17:41:58 by suvan-de      ########   odam.nl         */
+/*   Created: 2019/01/18 14:21:22 by suvan-de      #+#    #+#                 */
+/*   Updated: 2019/01/18 14:43:41 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr(int n)
+char	*ft_strcat(char *restrict s1, const char *restrict s2)
 {
-	if (n < 0)
-		ft_putnbr(-n);
-	if (n < 10)
-		ft_putchar(n + 48);
-	else
+	int	len1;
+	int len2;
+	int i;
+
+	i = 0;
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	while (i < len2)
 	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
+		s1[len1 + i] = s2[i];
+		i++;
 	}
+	s1[len1 + i] = '\0';
+	return (s1);
 }

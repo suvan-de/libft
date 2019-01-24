@@ -6,7 +6,7 @@
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/17 12:32:30 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/17 12:44:46 by suvan-de      ########   odam.nl         */
+/*   Updated: 2019/01/24 15:14:39 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	void *restrict tmp;
+	char	*temp;
+	char	*str;
+	size_t	i;
 
-	tmp = src;
-	dst = tmp;
-	return (dst);
+	i = 0;
+	temp = (char *) dst;
+	str = (char *) src;
+	while (i < n)
+	{
+		//temp[i] = str[i];
+		i++;
+	}
+	return (temp);
 }

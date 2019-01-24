@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strncpy.c                                       :+:    :+:            */
+/*   ft_putchar_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/01/17 16:33:58 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/17 16:36:29 by suvan-de      ########   odam.nl         */
+/*   Created: 2019/01/24 15:15:17 by suvan-de      #+#    #+#                 */
+/*   Updated: 2019/01/24 15:16:34 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strncpy(char *dst, const char *src, size_t len)
+void	ft_putchar_fd(char c, int fd)
 {
-	int i;
-
-	dst = (char *)malloc(len + 1);
-	i = 0;
-	while (i < len)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	write(fd, &c, 1);
 }
