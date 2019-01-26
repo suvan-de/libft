@@ -6,12 +6,19 @@
 /*   By: suvan-de <marvin@codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/15 14:32:01 by suvan-de      #+#    #+#                 */
-/*   Updated: 2019/01/24 15:36:36 by suvan-de      ########   odam.nl         */
+/*   Updated: 2019/01/26 17:26:27 by suvan-de      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
+
+static char    ft_atoe(char c)
+{
+    if (c == 'a')
+        c = 'e';
+	return (c);
+}
 
 int     main()
 {
@@ -21,8 +28,8 @@ int     main()
 	char	*str3;
 	char	*str4;
 	char	*str5;
-	char	*dst;
-	char 	*dst2;
+	char	*dst = NULL;
+	char 	*dst2 = NULL;
 	void	*arr;
 	int 	i;
 
@@ -67,10 +74,10 @@ int     main()
 	ft_bzero(str1, 1);
 	printf("string after bzero: %s\n", str1 + 1);
 //memcpy
-	char dest2[40] = "";
-	char src2[40] = "hello";
+	char dest2[10] = "";
+	char src2[6] = "hello";
 	printf("pointer to dest: %p\n", dest2);
-	printf("contents of dest after memcpy: %s and its address: %p\n", ft_memcpy(dst, src2, 3), ft_memcpy(dst, src2, 3));
+	printf("contents of dest after memcpy: %s and its address: %p\n", ft_memcpy(dest2, src2, 3), ft_memcpy(dest2, src2, 3));
 //strclr
 	i = 0;
 	str5 = (char *)malloc(5);
@@ -142,8 +149,10 @@ int     main()
 //strrchr
     printf("string after last -.- in -www.hello.com-: %s\n", ft_strrchr("www.hello.com", '.'));
 //strstr
-    const char str7[18] = "helloworld";
+    const char str7[40] = "helloworld";
     const char str8[5] = "lo";
+	const char *a;
+	a = ft_strstr(str7, str8);
     printf("substring -lo- in -helloworld-: %s\n", ft_strstr(str7, str8));
 //strnstr
     printf("substring -lo- in the first 5 chars of -helloworld-: %s\n", ft_strnstr(str7, str8, 5));
@@ -164,7 +173,12 @@ int     main()
 //strsplit
     char str9[80] = ".hello...wor.ld..today..gwef.chjebi..iqubwfi..";
     char **arr2;
-    arr = ft_strsplit(str9, '.');
+	char **arr3;
+    arr2 = ft_strsplit(str9, '.');
+	arr3 = (char **)arr2;
+	i = 0;
+	while (arr3[i])
+		printf("%s\n", arr3[i++]);
 //strsub
 	char str10[40] = "helloworld";
 	printf("substring of helloworld: %s\n", ft_strsub(str10, 3, 4));
@@ -176,7 +190,33 @@ int     main()
 	ft_putnbr_fd(-123, 1);
 //putendl_fd
     ft_putendl_fd("hello", 1);
+//memccpy
+	char dest4[10] = "";
+	char src4[10] = "hello";
+	printf("dest after memccpy first 3 chars: %s\n", ft_memccpy(dest4, src4, 'p', 3));
+	printf("dest after memccpy until 'l' is reached: %s\n", ft_memccpy(dest4, src4, 'l', 5)); 
+//memmove
+    char src5[10] = "hello";
+	char csrc[100] = "Geeksfor";
+	printf("dest after memmove: %s\n", ft_memmove(csrc + 5, csrc, 9));;
+	printf("%s\n", csrc);
+    printf("dest after memmove: %s\n", ft_memmove(src5 + 2, src5, 2));
+//memchr
+	char src6[6] = "hello";
+	printf("string after first occurence l: %s\n", ft_memchr(src6, 'l', 2));
+//memcmp
+	char str12[6] = "helloo";
+	char str13[7] = "hellop";
+	printf("%d\n", ft_memcmp(str12, str13, 6));
+//strmap
+	char str14[6] = "hallo";
+	printf("%s\n", ft_strmap(str14, &ft_atoe));
+//strmapi
 //strlcat
-    printf("strlcat: %zu\n", ft_strlcat(str3, str4, sizeof(str3)));
+    char    str11[10] = "bar";
+    char    buf[18] = "foo";
+    printf("sizeof dest: %lu\n", sizeof(buf));
+	printf("strlcat: %zu\n", ft_strlcat(buf, str11, sizeof(buf)));
+    printf("strlcat: %s\n", buf);
 	return (0);
 }
